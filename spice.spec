@@ -4,7 +4,7 @@ Summary(pl):	Symulator uk³adów elektronicznych Berkeley SPICE 3
 Summary(pt_BR):	SPICE simulador de circuitos
 Name:		spice
 Version:	3f5sfix
-Release:	2
+Release:	3
 License:	BSD
 Group:		Applications/Math
 Source0:	http://www.ibiblio.org/pub/Linux/apps/circuits/%{name}%{version}.tar.gz
