@@ -4,7 +4,7 @@ Summary(pl):	Symulator uk³adów elektronicznych Berkeley SPICE 3
 Summary(pt_BR):	SPICE simulador de circuitos
 Name:		spice
 Version:	3f5sfix
-Release:	1
+Release:	2
 License:	BSD
 Group:		Applications/Math
 Source0:	ftp://sunsite.unc.edu/apps/circuits/%{name}%{version}.tar.gz
@@ -97,14 +97,13 @@ install man/man1/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 echo ".so spice.1" > $RPM_BUILD_ROOT%{_mandir}/man1/spice3.1
 
-gzip -9nf readme readme.Linux Linux.changes notes/{spice2,internal} 3f5patches/README*
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz notes/*.gz 3f5patches/README*
+%doc readme readme.Linux Linux.changes notes/{spice2,internal}
+%doc 3f5patches/README*
 %attr(0755,root,root) %{_bindir}/*
 %dir %{_libdir}/spice
 %attr(0755,root,root) %{_libdir}/spice/*
