@@ -3,17 +3,16 @@ Summary(es):	SPICE simulador de circuitos
 Summary(pl):	Symulator uk³adów elektronicznych Berkeley SPICE 3
 Summary(pt_BR):	SPICE simulador de circuitos
 Name:		spice
-Version:	3f4
-Release:	17cl
+Version:	3f5sfix
+Release:	1
 License:	BSD
 Group:		Applications/Math
 Group(de):	Applikationen/Mathematik
 Group(pl):	Aplikacje/Matematyczne
-Source0:	http://ftp.ibiblio.org/pub/Linux/apps/circuits/%{name}%{version}.tar.bz2
-Source1:	http://ftp.ibiblio.org/pub/Linux/apps/circuits/%{name}%{version}-patches-1.2.tar.gz
-Patch0:		%{name}-ncurses.patch
-Patch1:		%{name}3f4-termcap.patch
-Requires:	readline >= 2.0
+Source0:	ftp://sunsite.unc.edu/apps/circuits/%{name}%{version}.tar.gz
+BuildRequires:	readline-devel
+BuildRequires:	ncurses-devel
+BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -77,70 +76,42 @@ Pakiet zawiera przyk³adowe pliki do Berkeley SPICE 3.
 Arquivos com exemplos para o SPICE 3 de Berkeley.
 
 %prep 
-%setup -q -n spice3f4 -a 1
-%patch0 -p1
-patch -s -p1 -E < spice3f4-patches-1.2/spice3f4.defaults.patch
-patch -s -p1 < spice3f4-patches-1.2/spice3f4.3f5.patch
-patch -s -p1 < spice3f4-patches-1.2/spice3f4.fixes.patch
-patch -s -p1 < spice3f4-patches-1.2/spice3f4.newlnx.patch
-patch -s -p1 < spice3f4-patches-1.2/spice3f4.xlibs.patch
-patch -s -p1 < spice3f4-patches-1.2/spice3f4.glibc.patch
-patch -s -p1 < spice3f4-patches-1.2/spice3f4.dirs.patch
-patch -s -p1 < spice3f4-patches-1.2/spice3f4.rdln.patch
-patch -s -p1 < spice3f4-patches-1.2/spice3f4.fixes2.patch
-patch -s -p1 < spice3f4-patches-1.2/spice3f4.smith.patch
-find . -name "*.orig" -exec rm {} \;
-%patch1 -p1
+%setup -q -n %{name}%{version}
 
 %build
-./util/build linux CC_OPT="%{rpmcflags}"
+./util/build linux \
+	CC_OPT="%{rpmcflags}" \
+	LDFLAGS="-ltinfo -lm -s" \
+	S_SPICE_EXEC_DIR="%{_libdir}/spice/" \
+	S_SPICE_LIB_DIR="%{_datadir}/spice/" 
 
 %install
 rm -rf $RPM_BUILD_ROOT
-# No longer using automatic install
-#./util/build linux install CC_OPT="%{optflags}"
 
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/spice/lib/{scripts,helpdir},%{_mandir}/man{1,3,5}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/spice,%{_datadir}/spice/{scripts,helpdir},%{_mandir}/man1}
 
-for i in spice3 help nutmeg sconvert multidec proc2mod
-do
-	install -m 0755 src/bin/$i $RPM_BUILD_ROOT%{_bindir}
-done
-install -m 0644 lib/{mfbcap,news} $RPM_BUILD_ROOT%{_libdir}/spice/lib
-install -m 0644 lib/helpdir/* $RPM_BUILD_ROOT%{_libdir}/spice/lib/helpdir
-install -m 0644 lib/scripts/* $RPM_BUILD_ROOT%{_libdir}/spice/lib/scripts
+install obj/bin/{nutmeg,sconvert,spice3} $RPM_BUILD_ROOT%{_bindir}
+install obj/bin/{help,makeidx,multidec,proc2mod} $RPM_BUILD_ROOT%{_libdir}/spice
+ln -s spice3 $RPM_BUILD_ROOT%{_bindir}/spice
 
-cp -rf examples $RPM_BUILD_ROOT%{_libdir}/spice
-install man/man1/spice.1 $RPM_BUILD_ROOT%{_mandir}/man1
-install man/man1/nutmeg.1 $RPM_BUILD_ROOT%{_mandir}/man1
-install man/man1/sconvert.1 $RPM_BUILD_ROOT%{_mandir}/man1
-install man/man3/mfb.3 $RPM_BUILD_ROOT%{_mandir}/man3
-install man/man5/mfbcap.5 $RPM_BUILD_ROOT%{_mandir}/man5
-cd $RPM_BUILD_ROOT%{_mandir}/man1
-ln -sf spice.1 spice3.1
+install lib/{mfbcap,news} $RPM_BUILD_ROOT%{_datadir}/spice/
+install lib/helpdir/* $RPM_BUILD_ROOT%{_datadir}/spice/helpdir
+install lib/scripts/* $RPM_BUILD_ROOT%{_datadir}/spice/scripts
+
+install man/man1/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
+
+echo ".so spice.1" > $RPM_BUILD_ROOT%{_mandir}/man1/spice3.1
+
+gzip -9nf readme readme.Linux Linux.changes notes/{spice2,internal} 3f5patches/README*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc readme readme.Linux notes/spice2
-%doc spice3f4-patches-1.2/README.patches
+%doc *.gz notes/*.gz 3f5patches/README*
 %dir %{_libdir}/spice
-%{_libdir}/spice/lib
-%attr(0755,root,root)%{_bindir}/spice3
-%attr(0755,root,root)%{_bindir}/help
-%attr(0755,root,root)%{_bindir}/nutmeg
-%attr(0755,root,root)%{_bindir}/sconvert
-%attr(0755,root,root)%{_bindir}/multidec
-%attr(0755,root,root)%{_bindir}/proc2mod
-%{_mandir}/man1/spice.1*
-%{_mandir}/man1/spice3.1*
-%{_mandir}/man1/nutmeg.1*
-%{_mandir}/man1/sconvert.1*
-%{_mandir}/man3/mfb.3*
-%{_mandir}/man5/mfbcap.5*
-
-%files examples
-%defattr(644,root,root,755)
-%{_libdir}/spice/examples
+%{_datadir}/spice
+%attr(0755,root,root) %{_bindir}/*
+%attr(0755,root,root) %{_libdir}/spice/*
+%{_mandir}/man1/*
