@@ -87,7 +87,6 @@ Arquivos com exemplos para o SPICE 3 de Berkeley.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/spice,%{_datadir}/spice/{scripts,helpdir},%{_mandir}/man1}
 
 install obj/bin/{nutmeg,sconvert,spice3} $RPM_BUILD_ROOT%{_bindir}
@@ -110,8 +109,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz notes/*.gz 3f5patches/README*
-%dir %{_libdir}/spice
-%{_datadir}/spice
 %attr(0755,root,root) %{_bindir}/*
+%dir %{_libdir}/spice
 %attr(0755,root,root) %{_libdir}/spice/*
+%{_datadir}/spice
 %{_mandir}/man1/*
