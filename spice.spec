@@ -81,7 +81,7 @@ Arquivos com exemplos para o SPICE 3 de Berkeley.
 %build
 ./util/build linux \
 	CC_OPT="%{rpmcflags}" \
-	LDFLAGS="-ltinfo -lm -s" \
+	LDFLAGS="-ltinfo -lm %{rpmldflags}" \
 	S_SPICE_EXEC_DIR="%{_libdir}/spice/" \
 	S_SPICE_LIB_DIR="%{_datadir}/spice/" 
 
