@@ -71,7 +71,7 @@ Pakiet zawiera przyk³adowe pliki do Berkeley SPICE 3.
 %description examples -l pt_BR
 Arquivos com exemplos para o SPICE 3 de Berkeley.
 
-%prep 
+%prep
 %setup -q -n %{name}%{version}
 
 %build
@@ -79,7 +79,7 @@ Arquivos com exemplos para o SPICE 3 de Berkeley.
 	CC_OPT="%{rpmcflags}" \
 	LDFLAGS="-ltinfo -lm %{rpmldflags}" \
 	S_SPICE_EXEC_DIR="%{_libdir}/spice/" \
-	S_SPICE_LIB_DIR="%{_datadir}/spice/" 
+	S_SPICE_LIB_DIR="%{_datadir}/spice/"
 
 %install
 rm -rf $RPM_BUILD_ROOT
