@@ -4,14 +4,14 @@ Summary(pl):	Symulator uk³adów elektronicznych Berkeley SPICE 3
 Summary(pt_BR):	SPICE simulador de circuitos
 Name:		spice
 Version:	3f5sfix
-Release:	3
+Release:	4
 License:	BSD
 Group:		Applications/Math
 Source0:	http://www.ibiblio.org/pub/Linux/apps/circuits/%{name}%{version}.tar.gz
 # Source0-md5:	b4a86690d2d56db3045a27ff75245356
-BuildRequires:	readline-devel
-BuildRequires:	ncurses-devel
 BuildRequires:	XFree86-devel
+BuildRequires:	ncurses-devel
+BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -58,7 +58,7 @@ Summary(es):	Archivos con ejemplos para  SPICE 3 de Berkeley
 Summary(pl):	Przyk³adowe pliki do Berkeley SPICE 3
 Summary(pt_BR):	Arquivos com exemplos para o SPICE 3 de Berkeley
 Group:		Applications/Math
-Requires:	%{name} >= 3f4
+Requires:	%{name} = %{version}-%{release}
 
 %description examples
 These are SPICE 3 example files for use with Berkeley SPICE 3.
@@ -80,7 +80,8 @@ Arquivos com exemplos para o SPICE 3 de Berkeley.
 	CC_OPT="%{rpmcflags}" \
 	LDFLAGS="-ltinfo -lm %{rpmldflags}" \
 	S_SPICE_EXEC_DIR="%{_libdir}/spice/" \
-	S_SPICE_LIB_DIR="%{_datadir}/spice/"
+	S_SPICE_LIB_DIR="%{_datadir}/spice/" \
+	LIBX="-L/usr/X11R6/%{_lib} -lXaw -lXt -lXext -lXmu -lSM -lICE -lX11"
 
 %install
 rm -rf $RPM_BUILD_ROOT
