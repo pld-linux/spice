@@ -8,6 +8,7 @@ Release:	2
 License:	BSD
 Group:		Applications/Math
 Source0:	ftp://sunsite.unc.edu/apps/circuits/%{name}%{version}.tar.gz
+# Source0-md5:	b4a86690d2d56db3045a27ff75245356
 BuildRequires:	readline-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	XFree86-devel
