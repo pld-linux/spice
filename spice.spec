@@ -7,8 +7,6 @@ Version:	3f5sfix
 Release:	1
 License:	BSD
 Group:		Applications/Math
-Group(de):	Applikationen/Mathematik
-Group(pl):	Aplikacje/Matematyczne
 Source0:	ftp://sunsite.unc.edu/apps/circuits/%{name}%{version}.tar.gz
 BuildRequires:	readline-devel
 BuildRequires:	ncurses-devel
@@ -59,8 +57,6 @@ Summary(es):	Archivos con ejemplos para  SPICE 3 de Berkeley
 Summary(pl):	Przyk³adowe pliki do Berkeley SPICE 3
 Summary(pt_BR):	Arquivos com exemplos para o SPICE 3 de Berkeley
 Group:		Applications/Math
-Group(de):	Applikationen/Mathematik
-Group(pl):	Aplikacje/Matematyczne
 Requires:	%{name} >= 3f4
 
 %description examples
