@@ -1,7 +1,7 @@
 Summary:	Berkeley SPICE 3 Circuit Simulator
-Summary(es):	SPICE simulador de circuitos
-Summary(pl):	Symulator uk≥adÛw elektronicznych Berkeley SPICE 3
-Summary(pt_BR):	SPICE simulador de circuitos
+Summary(es.UTF-8):   SPICE simulador de circuitos
+Summary(pl.UTF-8):   Symulator uk≈Çad√≥w elektronicznych Berkeley SPICE 3
+Summary(pt_BR.UTF-8):   SPICE simulador de circuitos
 Name:		spice
 Version:	3f5sfix
 Release:	4
@@ -27,49 +27,49 @@ for Linux, including GNU Lib C support, GNU Readline command-line
 editing and history file support, and native Spice support for X11R6
 and MFB.
 
-%description -l es
-SPICE es un programa de propÛsito general para simulaciÛn de circuitos
-para dc no linear, transiente no linear y an·lisis de ac linear. Los
+%description -l es.UTF-8
+SPICE es un programa de prop√≥sito general para simulaci√≥n de circuitos
+para dc no linear, transiente no linear y an√°lisis de ac linear. Los
 circuitos pueden contener resistores, capacitores, inductores,
 inductores mutuos, fuentes independientes de voltaje, cuatro tipos de
-fuentes dependientes, lÌneas de transmisiÛn y cuatro de los
-dispositivos semiconductores m·s comunes: diodos, BJTs, JFETs y
+fuentes dependientes, l√≠neas de transmisi√≥n y cuatro de los
+dispositivos semiconductores m√°s comunes: diodos, BJTs, JFETs y
 MOSFETs.
 
-%description -l pl
-SPICE 3 to ogÛlnego przeznaczenia symulator uk≥adÛw elektronicznych do
-analizy nieliniowej pr±du sta≥ego i liniowej pr±du zmiennego. Obwody
-mog± zawieraÊ rezystory, kondensatory, cewki, niezaleøne ºrÛd≥a
-napiÍciowe i pr±dowe, cztery rodzaje zaleønych ºrÛde≥, linie
-transmisyjne, cztery najbardziej popularne rodzaje pÛ≥przewodnikÛw:
+%description -l pl.UTF-8
+SPICE 3 to og√≥lnego przeznaczenia symulator uk≈Çad√≥w elektronicznych do
+analizy nieliniowej prƒÖdu sta≈Çego i liniowej prƒÖdu zmiennego. Obwody
+mogƒÖ zawieraƒá rezystory, kondensatory, cewki, niezale≈ºne ≈∫r√≥d≈Ça
+napiƒôciowe i prƒÖdowe, cztery rodzaje zale≈ºnych ≈∫r√≥de≈Ç, linie
+transmisyjne, cztery najbardziej popularne rodzaje p√≥≈Çprzewodnik√≥w:
 diody, BJT, JFET i MOSFET.
 
-%description -l pt_BR
-SPICE È um programa de propÛsito geral para simulaÁ„o de circuitos
-para dc n„o linear, transiente n„o linear e an·lises de ac linear.
+%description -l pt_BR.UTF-8
+SPICE √© um programa de prop√≥sito geral para simula√ß√£o de circuitos
+para dc n√£o linear, transiente n√£o linear e an√°lises de ac linear.
 Circuitos podem conter resistores, capacitores, indutores, indutores
-m˙tuos, fontes independentes de voltagem, quatro tipos de fontes
-dependentes, linhas de transmiss„o e quatro dos dispositivos
+m√∫tuos, fontes independentes de voltagem, quatro tipos de fontes
+dependentes, linhas de transmiss√£o e quatro dos dispositivos
 semicondutores mais comuns: diodos, BJTs, JFETs e MOSFETs.
 
 %package examples
 Summary:	Berkeley SPICE 3 Example Files
-Summary(es):	Archivos con ejemplos para  SPICE 3 de Berkeley
-Summary(pl):	Przyk≥adowe pliki do Berkeley SPICE 3
-Summary(pt_BR):	Arquivos com exemplos para o SPICE 3 de Berkeley
+Summary(es.UTF-8):   Archivos con ejemplos para  SPICE 3 de Berkeley
+Summary(pl.UTF-8):   Przyk≈Çadowe pliki do Berkeley SPICE 3
+Summary(pt_BR.UTF-8):   Arquivos com exemplos para o SPICE 3 de Berkeley
 Group:		Applications/Math
 Requires:	%{name} = %{version}-%{release}
 
 %description examples
 These are SPICE 3 example files for use with Berkeley SPICE 3.
 
-%description examples -l es
+%description examples -l es.UTF-8
 Archivos con ejemplos para SPICE 3 de Berkeley.
 
-%description examples -l pl
-Pakiet zawiera przyk≥adowe pliki do Berkeley SPICE 3.
+%description examples -l pl.UTF-8
+Pakiet zawiera przyk≈Çadowe pliki do Berkeley SPICE 3.
 
-%description examples -l pt_BR
+%description examples -l pt_BR.UTF-8
 Arquivos com exemplos para o SPICE 3 de Berkeley.
 
 %prep
