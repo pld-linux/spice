@@ -1,7 +1,7 @@
 Summary:	Berkeley SPICE 3 Circuit Simulator
-Summary(es.UTF-8):   SPICE simulador de circuitos
-Summary(pl.UTF-8):   Symulator układów elektronicznych Berkeley SPICE 3
-Summary(pt_BR.UTF-8):   SPICE simulador de circuitos
+Summary(es.UTF-8):	SPICE simulador de circuitos
+Summary(pl.UTF-8):	Symulator układów elektronicznych Berkeley SPICE 3
+Summary(pt_BR.UTF-8):	SPICE simulador de circuitos
 Name:		spice
 Version:	3f5sfix
 Release:	4
@@ -54,9 +54,9 @@ semicondutores mais comuns: diodos, BJTs, JFETs e MOSFETs.
 
 %package examples
 Summary:	Berkeley SPICE 3 Example Files
-Summary(es.UTF-8):   Archivos con ejemplos para  SPICE 3 de Berkeley
-Summary(pl.UTF-8):   Przykładowe pliki do Berkeley SPICE 3
-Summary(pt_BR.UTF-8):   Arquivos com exemplos para o SPICE 3 de Berkeley
+Summary(es.UTF-8):	Archivos con ejemplos para  SPICE 3 de Berkeley
+Summary(pl.UTF-8):	Przykładowe pliki do Berkeley SPICE 3
+Summary(pt_BR.UTF-8):	Arquivos com exemplos para o SPICE 3 de Berkeley
 Group:		Applications/Math
 Requires:	%{name} = %{version}-%{release}
 
