@@ -4,14 +4,16 @@ Summary(pl.UTF-8):	Symulator układów elektronicznych Berkeley SPICE 3
 Summary(pt_BR.UTF-8):	SPICE simulador de circuitos
 Name:		spice
 Version:	3f5sfix
-Release:	4
+Release:	5
 License:	BSD
 Group:		Applications/Math
 Source0:	http://www.ibiblio.org/pub/Linux/apps/circuits/%{name}%{version}.tar.gz
 # Source0-md5:	b4a86690d2d56db3045a27ff75245356
-BuildRequires:	XFree86-devel
+Patch0:		%{name}-gcc-4.1.patch
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXaw-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -74,14 +76,15 @@ Arquivos com exemplos para o SPICE 3 de Berkeley.
 
 %prep
 %setup -q -n %{name}%{version}
+%patch0 -p1
 
 %build
 ./util/build linux \
-	CC_OPT="%{rpmcflags}" \
+	CC_OPT="-I/usr/include/X11/ -I/usr/include/X11/Xaw/ %{rpmcflags}" \
 	LDFLAGS="-ltinfo -lm %{rpmldflags}" \
 	S_SPICE_EXEC_DIR="%{_libdir}/spice/" \
 	S_SPICE_LIB_DIR="%{_datadir}/spice/" \
-	LIBX="-L/usr/X11R6/%{_lib} -lXaw -lXt -lXext -lXmu -lSM -lICE -lX11"
+	LIBX="-lXaw -lX11"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -106,8 +109,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc readme readme.Linux Linux.changes notes/{spice2,internal}
 %doc 3f5patches/README*
-%attr(0755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/spice
-%attr(0755,root,root) %{_libdir}/spice/*
+%attr(755,root,root) %{_libdir}/spice/*
 %{_datadir}/spice
 %{_mandir}/man1/*
