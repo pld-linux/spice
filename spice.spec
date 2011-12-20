@@ -84,7 +84,7 @@ Arquivos com exemplos para o SPICE 3 de Berkeley.
 	LDFLAGS="-ltinfo -lm %{rpmldflags}" \
 	S_SPICE_EXEC_DIR="%{_libdir}/spice/" \
 	S_SPICE_LIB_DIR="%{_datadir}/spice/" \
-	LIBX="-lXaw -lX11"
+	LIBX="-lXaw -lX11 -lXt"
 
 %install
 rm -rf $RPM_BUILD_ROOT
