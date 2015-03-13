@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Symulator układów elektronicznych Berkeley SPICE 3
 Summary(pt_BR.UTF-8):	SPICE simulador de circuitos
 Name:		spice
 Version:	3f5sfix
-Release:	6
+Release:	7
 License:	BSD
 Group:		Applications/Math
 Source0:	http://www.ibiblio.org/pub/Linux/apps/circuits/%{name}%{version}.tar.gz
@@ -17,9 +17,7 @@ BuildRequires:	xorg-lib-libXaw-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # /usr/lib/rpm/bin/debugedit: canonicalization unexpectedly shrank by one character
-%ifarch x32
 %define		_enable_debug_packages	0
-%endif
 
 %description
 SPICE 3 is a general-purpose circuit simulation program for nonlinear
