@@ -79,7 +79,7 @@ Arquivos com exemplos para o SPICE 3 de Berkeley.
 
 %prep
 %setup -q -n %{name}%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 ./util/build linux \
