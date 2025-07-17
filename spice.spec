@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Symulator układów elektronicznych Berkeley SPICE 3
 Summary(pt_BR.UTF-8):	SPICE simulador de circuitos
 Name:		spice
 Version:	3f5sfix
-Release:	7
+Release:	8
 License:	BSD
 Group:		Applications/Math
 Source0:	http://www.ibiblio.org/pub/Linux/apps/circuits/%{name}%{version}.tar.gz
